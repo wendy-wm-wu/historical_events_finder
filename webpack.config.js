@@ -13,9 +13,6 @@ const webpack = require('webpack');
  * https://webpack.js.org/plugins/split-chunks-plugin/
  *
  */
-
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 /*
  * We've enabled HtmlWebpackPlugin for you! This generates a html
  * page for you when you compile webpack, which will make you start
@@ -31,29 +28,20 @@ module.exports = {
 
 	output: {
 		filename: 'bundle.js',
-		path: path.resolve(__dirname, 'client/public')
+		path: path.resolve(__dirname, 'public')
 	},
-
-	plugins: [new webpack.ProgressPlugin(), new HtmlWebpackPlugin()],
-
 	module: {
 		rules: [
 			{
 				test: /.(js|jsx)$/,
-				include: [path.resolve(__dirname, '(src')],
+				include: [path.resolve(__dirname, 'client/src')],
 				loader: 'babel-loader',
 
 				options: {
-					plugins: ['syntax-dynamic-import'],
-
-					presets: [
+					presets:
 						[
-							'@babel/preset-env',
-							{
-								modules: false
-							}
+							'@babel/preset-env', '@babel/preset-react'
 						]
-					]
 				}
 			}
 		]
