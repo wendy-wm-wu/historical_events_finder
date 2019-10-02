@@ -1,0 +1,4 @@
+package-lock.json
+node_modules
+.yo-rc.json
+client/public/bundle.js
