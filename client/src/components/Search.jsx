@@ -21,10 +21,6 @@ class Search extends React.Component {
     });
   }
 
-  search(term) {
-    this.props.onSearch(this.state.value);
-  }
-
   render() {
     return (
       <div className="search">
@@ -32,7 +28,7 @@ class Search extends React.Component {
         Search Historical Events:
         <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
-        <button search={this.search.bind(this)} >Submit</button>
+        <button onClick={()=> this.props.onSearch(this.state.value)} >Submit</button>
       </div>
     );
   }
